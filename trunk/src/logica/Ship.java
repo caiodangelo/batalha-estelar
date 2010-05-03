@@ -19,8 +19,15 @@ public class Ship {
 	private Point position;
 	private boolean sunk;
 	
+	/**
+	 * Constructs and Initializes a new ship at the
+	 * specified position.
+	 * @param name		The name of the ship.
+	 * @param size		The sizes of both X and Y directions
+	 * 					of the ship.
+	 * @param position	The position of the ship on the board.
+	 */
 	public Ship(String name, int size, Point position) {
-		super();
 		this.name = name;
 		this.size = size;
 		this.position = position;
@@ -57,8 +64,8 @@ public class Ship {
 	
 	/**
 	 * Checks if the ship contains the specified Point.
-	 * @param location	location to check
-	 * @return 			true if the location is part of the ship's points, false if it isn't
+	 * @param location	location to check.
+	 * @return 			true if the location is part of the ship's points, false if it isn't.
 	 */
 	public boolean isAt(Point location)
 	{
