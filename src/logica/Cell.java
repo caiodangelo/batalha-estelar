@@ -1,45 +1,49 @@
 package logica;
 
-public class Cell {
+import java.awt.Point;
+
+/**
+ * Implements the Cell class, which is an extension
+ * of the Point class, with 2 more attributes: isHit and
+ * hasShip, that facilitate the generation of the HTML 
+ * Board representation.
+ * @author Vitor / Caio
+ * @version 1.0
+ */
+@SuppressWarnings("serial")
+public class Cell extends Point{
 	
-	private boolean foiAtingida;
-	private boolean contemNavio;	
-	
+	private boolean isHit;
+	private boolean hasShip;	
 	
 	public Cell() {
 		super();
-		this.foiAtingida = false;
-		this.contemNavio = false;
+		this.isHit = false;
+		this.hasShip = false;
+	}
+	
+	public Cell(int x, int y)
+	{
+		super();
+		this.x = x;
+		this.y = y;
+		this.isHit = false;
+		this.hasShip = false;
 	}
 
-
-	public boolean isFoiAtingida() {
-		return foiAtingida;
+	public boolean isHit() {
+		return this.isHit;
 	}
 
-
-	public void setFoiAtingida(boolean foiAtingida) {
-		this.foiAtingida = foiAtingida;
+	public void setIsHit(boolean isHit) {
+		this.isHit = isHit;
 	}
 
-
-	public boolean isContemNavio() {
-		return contemNavio;
+	public boolean hasShip() {
+		return this.hasShip;
 	}
 
-
-	public void setContemNavio(boolean contemNavio) {
-		this.contemNavio = contemNavio;
-	}
-
-
-	public boolean verificaTiro(Cell celula){
-		if(celula.isContemNavio()){
-			celula.setFoiAtingida(true);
-			return true;
-		}
-		else{
-			return false;
-		}
+	public void setHasShip(boolean hasShip) {
+		this.hasShip = hasShip;
 	}
 }

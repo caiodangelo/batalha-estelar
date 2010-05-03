@@ -9,7 +9,7 @@ import java.awt.Point;
  * if the size is 2, then the ship is a 2 by 2 square.
  * @TO-DO create an abstract class for Ship and make the 
  * "square size" type of ship a subclass inherited from it.
- * @author Vitor
+ * @author Vitor / Caio
  * @version 1.0
  */
 public class Ship {
@@ -56,7 +56,7 @@ public class Ship {
 	}
 	
 	/**
-	 * Checks if the ship contains the specified Point
+	 * Checks if the ship contains the specified Point.
 	 * @param location	location to check
 	 * @return 			true if the location is part of the ship's points, false if it isn't
 	 */
