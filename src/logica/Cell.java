@@ -1,12 +1,12 @@
 package logica;
 
-public class Celula {
+public class Cell {
 	
 	private boolean foiAtingida;
 	private boolean contemNavio;	
 	
 	
-	public Celula() {
+	public Cell() {
 		super();
 		this.foiAtingida = false;
 		this.contemNavio = false;
@@ -33,7 +33,7 @@ public class Celula {
 	}
 
 
-	public boolean verificaTiro(Celula celula){
+	public boolean verificaTiro(Cell celula){
 		if(celula.isContemNavio()){
 			celula.setFoiAtingida(true);
 			return true;
