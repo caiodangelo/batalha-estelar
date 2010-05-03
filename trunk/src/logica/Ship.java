@@ -57,12 +57,12 @@ public class Ship {
 	
 	/**
 	 * Checks if the ship contains the specified Point
-	 * @param location to check
-	 * @return true if the location is part of the ship's points, false if it isn't
+	 * @param location	location to check
+	 * @return 			true if the location is part of the ship's points, false if it isn't
 	 */
 	public boolean isAt(Point location)
 	{
-		return ((this.position.x <= location.x) && (this.position.x + this.size > location.y) &&
+		return ((this.position.x <= location.x) && (this.position.x + this.size > location.x) &&
 				(this.position.y <= location.y) && (this.position.y + this.size > location.y));
 	}
 
