@@ -4,9 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Batalha Espacial - Caio e Vitor</title>
 </head>
 <body>
-Teste
+<h1>Bem vindo ao jogo de batalha espacial</h1>
+<fieldset><legend>Escolha seu nick</legend>
+<form action="" method="post">
+<input type="text" name="nick" /></br>
+<input type="submit" value="Entrar" />
+</form>
+</fieldset>
 </body>
 </html>
