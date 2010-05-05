@@ -21,8 +21,16 @@ public class Board {
 	 */
 	Board(int boardSize, int shipCount)
 	{
-		this.shipList = new Ship[shipCount];
 		this.shotList = new Vector<Point>();
 		this.grid = new Cell[boardSize][boardSize];
+	}
+	
+	public Ship[] getShipList()
+	{
+		return this.shipList;
+	}
+	public void setShipList(Ship[] ships)
+	{
+		this.shipList = ships;
 	}
 }
