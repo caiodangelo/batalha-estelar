@@ -48,6 +48,7 @@ public class Ship {
 	{
 		return this.sunk;
 	}
+	
 	public void setSunk(boolean sunk)
 	{
 		this.sunk = sunk;
@@ -57,6 +58,7 @@ public class Ship {
 	{
 		return this.position;
 	}
+	
 	public void setPosition(Point position)
 	{
 		this.position = position;
