@@ -1,6 +1,8 @@
 package logica;
 
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,8 +40,18 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login = request.getParameter("nick");
 		HttpSession session = request.getSession();
+		ServletContext application = getServletContext();
 		session.setAttribute("login", login);
 		synchronized(this){
+			Game game = (Game) application.getAttribute("game");
+			if(game==null){
+				//classe Game ainda não foi instanciada
+				
+			}
+			else{
+				//classe Game já havia sido instanciada
+				
+			}
 			
 		}
 	}
