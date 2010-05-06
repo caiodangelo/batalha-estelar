@@ -1,5 +1,5 @@
 package logica;
 
 public enum GameState {
-	Started, WaitingForPlayers, Ended
+	WaitingForPlayers, Initializing, InProgress, Ended
 }

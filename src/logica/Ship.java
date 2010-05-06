@@ -1,6 +1,7 @@
 package logica;
 
 import java.awt.Point;
+import java.util.Vector;
 
 /**
  * Implements the Ship Class. A ship has a name, size, base
@@ -62,6 +63,40 @@ public class Ship {
 	public void setPosition(Point position)
 	{
 		this.position = position;
+	}
+	
+	/**
+	 * Gets all locations that belong to this ship.
+	 * @return Vector of Points.
+	 */
+	public Vector<Point> getAllLocations()
+	{
+		Vector<Point> locations = new Vector<Point>();
+		for (int x = this.position.x; x < this.size; x++)
+		{
+			for (int y = this.position.y; y < this.size; y++)
+			{
+				locations.add(new Point(x,y));
+			}
+		}
+		return locations;
+	}
+	
+	/**
+	 * Checks conflict with another ship.
+	 * @param otherShip	The other ship to check conflict with.
+	 * @return 			true if the ships conflict, false if they don't
+	 */
+	public boolean conflictsWith(Ship otherShip)
+	{
+		for (Point otherShipLocation : otherShip.getAllLocations())
+		{
+			if (this.isAt(otherShipLocation))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**
