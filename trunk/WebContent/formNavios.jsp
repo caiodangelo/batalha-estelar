@@ -12,7 +12,9 @@
 <form action="/RecebeNavios" method="post">
 <%
 	out.println(HtmlTools.generateHtmlTable(15,15,true));
+	out.println(HtmlTools.generateHtmlShipsForm(5,3,3));
 %>
-</form>
+<br />
+<input type="submit" value="Envia" />
 </body>
 </html>
