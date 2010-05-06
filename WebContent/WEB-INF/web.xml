@@ -19,4 +19,14 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RecebeNavios</display-name>
+    <servlet-name>RecebeNavios</servlet-name>
+    <servlet-class>logica.RecebeNavios</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RecebeNavios</servlet-name>
+    <url-pattern>/RecebeNavios</url-pattern>
+  </servlet-mapping>
 </web-app>
