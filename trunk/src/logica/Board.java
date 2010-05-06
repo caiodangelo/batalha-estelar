@@ -19,9 +19,10 @@ public class Board {
 	 * @param boardSize The N by N size of the new Board.
 	 * @param shipCount The number of ships allowed on the Board.
 	 */
-	Board(int boardSize, int shipCount)
+	Board(int boardSize, Vector<Ship> shipList)
 	{
 		this.shotList = new Vector<Point>();
+		this.shipList = shipList;
 		this.grid = new Cell[boardSize][boardSize];
 	}
 	
