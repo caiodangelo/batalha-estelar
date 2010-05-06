@@ -45,22 +45,40 @@ public class Game {
 		else if (player2 == null)
 		{
 			player2 = new Player(playerName);
+			this.gameState = GameState.Initializing;
 		}
 		else { return false; }
 		return true;
 	}
 	
 	/**
-	 * Sets the ship list of a given player.
-	 * @param playerName The name of the player to set.
-	 * @param shipList	 The Vector containing the shiplist.
+	 * Initializes the board of a given player. Note that the ship
+	 * list is supposed to be already validated by the servlet.
+	 * @param playerName Name of the player to set.
+	 * @param shipList	 Vector containing the ship list.
 	 */
-	public void setPlayerShipList (String playerName, Vector<Ship> shipList)
+	public void initializePlayerBoard (String playerName, Vector<Ship> shipList)
 	{
 		Player player = getPlayerByName(playerName);
-		player.setShipList(shipList);
+		player.initializeBoard(this.boardSize, shipList);
 	}
 	
+	/**
+	 * Attempts to start the game. Will be successful if both
+	 * players are ready.
+	 * @return True if the game started successfully, False
+	 * 		   if it didn't.
+	 */
+	public boolean startGame()
+	{
+		if (isGameReady())
+		{
+			this.gameState = GameState.InProgress;
+			return true;
+		}
+		return false;
+	}
+		
 	/**
 	 * Validates the Ship List passed as a parameter
 	 * from the Servlet.
@@ -101,4 +119,16 @@ public class Game {
 		else return null;
 	}
 	
+	/**
+	 * Checks if the game is ready to start.
+	 * @return True if the game is ready, False if it's not.
+	 */
+	private boolean isGameReady()
+	{
+		if (player1.isReady() && player2.isReady())
+		{
+			return true;
+		}
+		return false;
+	}
 }

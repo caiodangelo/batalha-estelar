@@ -11,11 +11,12 @@ public class Player {
 	
 	private String name;
 	private Board board;
-	private Vector<Ship> shipList;
+	private boolean readyToStart;
 	
 	Player (String playerName)
 	{
 		this.name = playerName;
+		this.readyToStart = false;
 	}
 	
 	public String getPlayerName()
@@ -23,14 +24,26 @@ public class Player {
 		return this.name;
 	}
 	
+	public boolean isReady()
+	{
+		return this.readyToStart;
+	}
+	
 	public void setPlayerName(String name)
 	{
 		this.name = name;
 	}
 	
-	public void setShipList(Vector<Ship> shipList)
+	/**
+	 * Initializes the player's board.
+	 * @param boardSize	The size of the board.
+	 * @param shipList	The ship list of the board.
+	 * @return
+	 */
+	public void initializeBoard(int boardSize, Vector<Ship> shipList)
 	{
-		
+		this.board = new Board(boardSize, shipList);
+		this.readyToStart = true;
 	}
 	
 }
