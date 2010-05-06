@@ -46,10 +46,20 @@ public class Login extends HttpServlet {
 			Game game = (Game) application.getAttribute("game");
 			if(game==null){
 				//classe Game ainda não foi instanciada
-				
+				game = new Game(15);
+				game.addPlayer(login);
+				request.getRequestDispatcher("formNavios.jsp").forward(request, response);
 			}
 			else{
 				//classe Game já havia sido instanciada
+				if(game.getGameState()!= GameState.WaitingForPlayers){
+					//jogo já está lotado e/ou em andamento
+					request.getRequestDispatcher("salaCheia.jsp").forward(request, response);
+				}
+				else{
+					game.addPlayer(login);
+					request.getRequestDispatcher("formNavios.jsp").forward(request, response);
+				}
 				
 			}
 			
