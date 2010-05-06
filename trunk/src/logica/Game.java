@@ -1,17 +1,19 @@
 package logica;
 
+import java.util.Random;
 import java.util.Vector;
 
 /**
  * Implements the Game class.
  * @author Vitor / Caio
- *
+ * @version 1.0
  */
 public class Game {
 	
 	private GameState gameState;
 	private Player player1;
 	private Player player2;
+	private Player turn;
 	private int boardSize;
 	
 	/**
@@ -50,6 +52,28 @@ public class Game {
 		else { return false; }
 		return true;
 	}
+
+	/**
+	 * Validates the Ship List passed as a parameter
+	 * from the Servlet.
+	 * @param	shipList List of ships to validate.
+	 * @return			 Result of the validation in the form of a
+	 * 		   			 ValidationCode.
+	 */
+	public ValidationCode validateShipList(Vector<Ship> shipList)
+	{
+		for (int i = 0; i < shipList.size(); i++)
+		{
+			for (int j = i + 1; j < shipList.size(); j++)
+			{
+				if (shipList.get(i).conflictsWith(shipList.get(j)))
+				{
+					return ValidationCode.ShipLocationError;
+				}
+			}
+		}
+		return ValidationCode.ValidationOK;
+	}
 	
 	/**
 	 * Initializes the board of a given player. Note that the ship
@@ -74,31 +98,65 @@ public class Game {
 		if (isGameReady())
 		{
 			this.gameState = GameState.InProgress;
+			Random random = new Random();
+			if (random.nextDouble() >= 0.5)
+			{
+				this.turn = this.player2;
+			}
+			else
+			{
+				this.turn = this.player1;
+			}
 			return true;
 		}
 		return false;
 	}
-		
+	
 	/**
-	 * Validates the Ship List passed as a parameter
-	 * from the Servlet.
-	 * @param	shipList List of ships to validate.
-	 * @return			 Result of the validation in the form of a
-	 * 		   			 ValidationCode.
+	 * Attempts to shoot at the adversary.
+	 * @param playerName Name of the player doing the shot.
+	 * @return 			 True if the shot was completed, False 
+	 * 					 if it wasn't. 
 	 */
-	public ValidationCode validateShipList(Vector<Ship> shipList)
+	public boolean doShot(String playerName)
 	{
-		for (int i = 0; i < shipList.size(); i++)
+		return false;
+	}
+	
+	/**
+	 * Gets a Cell grid that represents the current state of the
+	 * player's board. Used to generate the HTML table that will
+	 * be displayed to the user.
+	 * @param playerName Name of the player asking for the table.
+	 * @return			 Cell grid that represents the current
+	 * 					 state of the player's board.
+	 */
+	public Cell[][] getPlayerBoard(String playerName)
+	{
+		Player player = getPlayerByName(playerName);
+		return player.getBoardState();
+	}
+	
+	/**
+	 * Gets a Cell grid that represents the current state of the
+	 * opponent's board. Used to generate the HTML table that will
+	 * be displayed to the user.
+	 * @param playerName Name of the player asking for the table.
+	 * @return			 Cell grid that represents the current
+	 * 					 state of the opponent's board.
+	 */
+	public Cell[][] getOpponentBoard(String playerName)
+	{
+		Player player;
+		if (getPlayerByName(playerName) == player1)
 		{
-			for (int j = i + 1; j < shipList.size(); j++)
-			{
-				if (shipList.get(i).conflictsWith(shipList.get(j)))
-				{
-					return ValidationCode.ShipLocationError;
-				}
-			}
+			player = player2;
 		}
-		return ValidationCode.ValidationOK;
+		else 
+		{
+			player = player1;
+		}
+		return player.getRestrictedBoardState();
 	}
 	
 	/**
