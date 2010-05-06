@@ -4,15 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Batalha Espacial - Caio e Vitor</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>Bem vindo ao jogo de batalha espacial</h1>
-<fieldset><legend>Escolha seu nick</legend>
-<form action="/Login" method="post">
-<input type="text" name="nick" /><br />
-<input type="submit" value="Entrar" />
-</form>
-</fieldset>
+<table>
+<%
+for(int i=0; i<15; i++){
+	System.out.println("<tr>");
+	for(int j =0; j<15; j++){
+		out.println("<td>x</td>");
+	}
+	out.println("</tr>");
+}
+%>
+</table>
 </body>
 </html>
