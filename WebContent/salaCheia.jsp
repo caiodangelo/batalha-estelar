@@ -4,15 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Batalha Espacial - Caio e Vitor</title>
+<title>Sala Cheia</title>
 </head>
 <body>
-<h1>Bem vindo ao jogo de batalha espacial</h1>
-<fieldset><legend>Escolha seu nick</legend>
-<form action="/Login" method="post">
-<input type="text" name="nick" /><br />
-<input type="submit" value="Entrar" />
-</form>
-</fieldset>
+Ops... a sala está lotada. Tente novamente mais tarde.<br /><br />
+<a href="index.jsp">Voltar para a página inicial</a>
 </body>
 </html>
