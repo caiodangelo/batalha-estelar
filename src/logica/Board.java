@@ -6,7 +6,7 @@ import java.util.Vector;
 /**
  * Implements the Board class.
  * @author Vitor / Caio
- *
+ * @version 1.0
  */
 public class Board {
 	
@@ -30,8 +30,21 @@ public class Board {
 	{
 		return this.shipList;
 	}
+	
 	public void setShipList(Vector<Ship> ships)
 	{
 		this.shipList = ships;
 	}
+	
+	public Cell[][] getBoardState()
+	{
+		Cell[][] boardState = grid.clone();
+		
+	}
+	
+	public Cell[][] getRestrictedBoardState()
+	{
+		Cell[][] restrictedBoardState = grid.clone();
+	}
+	
 }
