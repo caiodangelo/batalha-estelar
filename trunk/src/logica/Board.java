@@ -11,7 +11,7 @@ import java.util.Vector;
 public class Board {
 	
 	private Vector<Point> shotList;
-	private Ship[] shipList;
+	private Vector<Ship> shipList;
 	private Cell[][] grid;
 	
 	/**
@@ -25,11 +25,11 @@ public class Board {
 		this.grid = new Cell[boardSize][boardSize];
 	}
 	
-	public Ship[] getShipList()
+	public Vector<Ship> getShipList()
 	{
 		return this.shipList;
 	}
-	public void setShipList(Ship[] ships)
+	public void setShipList(Vector<Ship> ships)
 	{
 		this.shipList = ships;
 	}
