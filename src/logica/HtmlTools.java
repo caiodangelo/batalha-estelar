@@ -4,12 +4,14 @@ public class HtmlTools {
 	
 	public static String generateHtmlTable(int rows, int cols, boolean isForm){
 		String table;
+		int k = 0;
 		table = "<table border=\"1\">";
 		if(isForm){
 			for(int i=0; i<rows; i++){
 				table = table + "<tr>";
 				for(int j=0; j<cols; j++){
-					table = table + "<td>"+i+j+"</td>";
+					table = table + "<td>"+k+"</td>";
+					k++;
 				}
 				table = table + "</tr>";
 			}
@@ -18,7 +20,8 @@ public class HtmlTools {
 		for(int i=0; i<rows; i++){
 			table = table + "<tr>";
 			for(int j=0; j<cols; j++){
-				table = table + "<td>"+i+j+"</td>";
+				table = table + "<td>"+k+"</td>";
+				k++;
 			}
 			table = table + "</tr>";
 		}
