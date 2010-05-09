@@ -48,6 +48,7 @@ public class Login extends HttpServlet {
 				//classe Game ainda não foi instanciada
 				game = new Game(15);
 				game.addPlayer(login);
+				application.setAttribute("game", game);
 				request.getRequestDispatcher("formNavios.jsp").forward(request, response);
 			}
 			else{
