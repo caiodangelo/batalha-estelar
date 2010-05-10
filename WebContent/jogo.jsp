@@ -37,7 +37,7 @@ HtmlTools.generateHtmlTable(game.getOpponentBoard(nome),game.getBoardSize());
 </div>
 <div class="options">
 <%
-if(game.IsPlayersTurn(nome)){
+if(game.isPlayersTurn(nome)){
 %>
 <form action="RealizaAtaque" method="post">
 Posição x:<input type="text" name="posx" /><br />

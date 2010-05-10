@@ -33,6 +33,11 @@ public class Game {
 		return this.gameState;
 	}
 	
+	public int getBoardSize()
+	{
+		return this.boardSize;
+	}
+	
 	/**
 	 * Adds a player to the game.
 	 * @param playerName Name of the player to add.
@@ -114,23 +119,38 @@ public class Game {
 	}
 	
 	/**
+	 * Checks if it's a given player's turn.
+	 * @param playerName Name of the player.
+	 * @return			 True if it is his turn, False it it isn't.
+	 */
+	public boolean isPlayersTurn(String playerName)
+	{
+		return turn.getPlayerName().equals(playerName);
+	}
+	
+	/**
 	 * Attempts to shoot at the adversary.
 	 * @param playerName Name of the player doing the shot.
 	 * @return 			 True if the shot was completed, False 
 	 * 					 if it wasn't. 
 	 */
-	public boolean doShot(String playerName, Point shot)
+	public ShotResult doShot(String playerName, Point shot)
 	{
+		ShotResult result;
 		Player playerShooting = getPlayerByName(playerName);
 		Player playerBeingShot = getOpposingPlayer(playerName);
 		// Test if the player attempting the shot is this turn's player.
 		if (turn != playerShooting)
 		{
-			return false;
+			return ShotResult.NotYourTurn;
 		}
 		
-		playerBeingShot.getShot(shot);
-		return true;
+		result = playerBeingShot.getShot(shot);
+		if (result == ShotResult.AllShipsSunk)
+		{
+			this.gameState = GameState.Ended;
+		}
+		return result;
 	}
 	
 	/**
