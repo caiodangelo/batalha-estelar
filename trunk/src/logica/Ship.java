@@ -60,9 +60,9 @@ public class Ship {
 	public Vector<Point> getAllLocations()
 	{
 		Vector<Point> locations = new Vector<Point>();
-		for (int x = this.position.x; x < this.size; x++)
+		for (int x = position.x; x < position.x + size; x++)
 		{
-			for (int y = this.position.y; y < this.size; y++)
+			for (int y = position.y; y < position.y + size; y++)
 			{
 				locations.add(new Point(x,y));
 			}
