@@ -81,8 +81,14 @@ public class RecebeNavios extends HttpServlet {
 			String callerX = "xwing"+Integer.toString(i)+"x";
 			String callerY = "xwing"+Integer.toString(i)+"y";
 			if((request.getParameter(callerX)!=null)&&(request.getParameter(callerY)!=null)){
-				x = Integer.parseInt(request.getParameter(callerX));
-				y = Integer.parseInt(request.getParameter(callerY));
+				String px = request.getParameter(callerX);
+				String py = request.getParameter(callerY);
+				if(px=="")
+					px = "-1";
+				if(py=="")
+					py = "-1";
+				x = Integer.parseInt(px);
+				y = Integer.parseInt(py);
 				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
 					temp.add(new Ship("Xwing"+i,1,new Point(x-1,y-1)));
 				}
@@ -104,8 +110,14 @@ public class RecebeNavios extends HttpServlet {
 			String callerX = "falcon"+Integer.toString(i)+"x";
 			String callerY = "falcon"+Integer.toString(i)+"y";
 			if((request.getParameter(callerX)!=null)&&(request.getParameter(callerY)!=null)){
-				x = Integer.parseInt(request.getParameter(callerX));
-				y = Integer.parseInt(request.getParameter(callerY));
+				String px = request.getParameter(callerX);
+				String py = request.getParameter(callerY);
+				if(px=="")
+					px = "-1";
+				if(py=="")
+					py = "-1";
+				x = Integer.parseInt(px);
+				y = Integer.parseInt(py);
 				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
 					temp.add(new Ship("Falcon"+i,2,new Point(x-1,y-1)));
 				}
@@ -127,8 +139,14 @@ public class RecebeNavios extends HttpServlet {
 			String callerX = "destroyer"+Integer.toString(i)+"x";
 			String callerY = "destroyer"+Integer.toString(i)+"y";
 			if((request.getParameter(callerX)!=null)&&(request.getParameter(callerY)!=null)){
-				x = Integer.parseInt(request.getParameter(callerX));
-				y = Integer.parseInt(request.getParameter(callerY));
+				String px = request.getParameter(callerX);
+				String py = request.getParameter(callerY);
+				if(px=="")
+					px = "-1";
+				if(py=="")
+					py = "-1";
+				x = Integer.parseInt(px);
+				y = Integer.parseInt(py);
 				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
 					temp.add(new Ship("Destroyer"+i,3,new Point(x-1,y-1)));
 				}
