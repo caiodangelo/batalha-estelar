@@ -68,8 +68,14 @@ public class HtmlTools {
 	}
 	
 	public static String getErrors(String erro){
-		String msg = erro;
-		return msg;
+		String msg = "";
+		if(erro!=null){
+			msg = erro;
+			return msg;
+		}
+		else{
+			return msg;
+		}
 	}
 
 }
