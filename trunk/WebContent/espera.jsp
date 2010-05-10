@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
-    import="logica.Game"%>
+    import="logica.Game"
+    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,7 +13,7 @@
 <%
 Game game = (Game) application.getAttribute("game");
 while(!game.startGame()){
-	//wait
+	//wait other player
 }
 request.getRequestDispatcher("jogo.jsp").forward(request, response);
 %>
