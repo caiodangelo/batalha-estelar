@@ -52,7 +52,7 @@ if(game.isPlayersTurn(nome)){
 <form action="RealizaAtaque" method="post">
 Posição x:<input type="text" name="posx" /><br />
 Posição y:<input type="text" name="posy" /><br />
-<input type="submit" value="Envia" />"
+<input type="submit" value="Envia" />
 </form>
 <%	
 }
