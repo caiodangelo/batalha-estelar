@@ -39,4 +39,14 @@
     <servlet-name>RealizaAtaque</servlet-name>
     <url-pattern>/RealizaAtaque</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FinalizaJogo</display-name>
+    <servlet-name>FinalizaJogo</servlet-name>
+    <servlet-class>logica.FinalizaJogo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FinalizaJogo</servlet-name>
+    <url-pattern>/FinalizaJogo</url-pattern>
+  </servlet-mapping>
 </web-app>
