@@ -11,6 +11,7 @@
 <body>
 <form action="RecebeNavios" method="post">
 <%
+	out.println(HtmlTools.getErrors((String)request.getAttribute("error")));
 	out.println(HtmlTools.generateHtmlTable(15,15,true));
 	out.println(HtmlTools.generateHtmlShipsForm(5,3,3));
 %>
