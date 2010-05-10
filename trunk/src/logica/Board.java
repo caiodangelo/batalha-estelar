@@ -25,7 +25,7 @@ public class Board {
 		this.shotList = new Vector<Point>();
 		this.shipList = shipList;
 		this.boardSize = boardSize;
-		this.board = null;
+		initializeCells();
 	}
 
 	public Vector<Ship> getShipList()
@@ -43,20 +43,23 @@ public class Board {
 		return this.shotList;
 	}
 	
-	public Cell[][] getBoardState()
+	/**
+	 * Initializes all the cells from the board
+	 */
+	private void initializeCells()
 	{
-		// Check if an older version of the board already exists
-		if (board == null)
+		board = new Cell[boardSize][boardSize];
+		for (int i = 0; i < boardSize; i++)
 		{
-			board = new Cell[boardSize][boardSize];
-			for (int i = 0; i < boardSize; i++)
+			for (int j = 0; j < boardSize; j++)
 			{
-				for (int j = 0; j < boardSize; j++)
-				{
-					board[i][j].setLocation(i, j);
-				}
+				board[i][j] = new Cell();
 			}
 		}
+	}
+	
+	public Cell[][] getBoardState()
+	{
 		// Update hasShip and wasHit of the Cells
 		for (Ship ship : shipList)
 		{
@@ -74,18 +77,6 @@ public class Board {
 	
 	public Cell[][] getRestrictedBoardState()
 	{
-		// Check if an older version of the board already exists
-		if (board == null)
-		{
-			board = new Cell[boardSize][boardSize];
-			for (int i = 0; i < boardSize; i++)
-			{
-				for (int j = 0; j < boardSize; j++)
-				{
-					board[i][j].setLocation(i, j);
-				}
-			}
-		}
 		// Update wasHit of the Cells
 		for (Point point : shotList)
 		{
@@ -93,6 +84,7 @@ public class Board {
 		}
 		
 		Cell[][] restrictedBoard = board.clone();
+		// Set to false all hasShip of the Cells
 		for (int i = 0; i < boardSize; i++)
 		{
 			for (int j = 0; j < boardSize; j++)

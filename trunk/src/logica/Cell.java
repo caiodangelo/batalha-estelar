@@ -1,6 +1,5 @@
 package logica;
 
-import java.awt.Point;
 
 /**
  * Implements the Cell class, which is an extension
@@ -10,23 +9,12 @@ import java.awt.Point;
  * @author Vitor / Caio
  * @version 1.0
  */
-@SuppressWarnings("serial")
-public class Cell extends Point{
+public class Cell{
 	
 	private boolean isHit;
 	private boolean hasShip;	
 	
 	public Cell() {
-		super();
-		this.isHit = false;
-		this.hasShip = false;
-	}
-	
-	public Cell(int x, int y)
-	{
-		super();
-		this.x = x;
-		this.y = y;
 		this.isHit = false;
 		this.hasShip = false;
 	}
