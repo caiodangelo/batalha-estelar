@@ -16,7 +16,7 @@ Game game = (Game) application.getAttribute("game");
 if(game.startGame())
 {
 	out.println("<a href=\"espera.jsp\">Refresh</a>");
-	//request.getRequestDispatcher("jogo.jsp").forward(request, response);
+	request.getRequestDispatcher("jogo.jsp").forward(request, response);
 }
 else{
 	%>
