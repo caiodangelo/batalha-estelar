@@ -100,5 +100,9 @@ public class HtmlTools {
 			return msg;
 		}
 	}
+	
+	public static String getMessage(String msg){
+		return getErrors(msg);
+	}
 
 }
