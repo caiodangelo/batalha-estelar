@@ -84,7 +84,7 @@ public class RecebeNavios extends HttpServlet {
 				x = Integer.parseInt(request.getParameter(callerX));
 				y = Integer.parseInt(request.getParameter(callerY));
 				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
-					temp.add(new Ship("Xwing"+i,1,new Point(x,y)));
+					temp.add(new Ship("Xwing"+i,1,new Point(x-1,y-1)));
 				}
 			}
 		}
@@ -107,7 +107,7 @@ public class RecebeNavios extends HttpServlet {
 				x = Integer.parseInt(request.getParameter(callerX));
 				y = Integer.parseInt(request.getParameter(callerY));
 				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
-					temp.add(new Ship("Falcon"+i,2,new Point(x,y)));
+					temp.add(new Ship("Falcon"+i,2,new Point(x-1,y-1)));
 				}
 			}
 		}
@@ -130,7 +130,7 @@ public class RecebeNavios extends HttpServlet {
 				x = Integer.parseInt(request.getParameter(callerX));
 				y = Integer.parseInt(request.getParameter(callerY));
 				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
-					temp.add(new Ship("Destroyer"+i,3,new Point(x,y)));
+					temp.add(new Ship("Destroyer"+i,3,new Point(x-1,y-1)));
 				}
 			}
 		}
