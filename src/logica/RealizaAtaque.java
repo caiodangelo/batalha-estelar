@@ -40,7 +40,7 @@ public class RealizaAtaque extends HttpServlet {
 		Game game = (Game) application.getAttribute("game");
 		Point target = new Point();
 		if(getTiro(request,target)){
-			ShotResult shot = game.doShot((String) session.getAttribute("nick"), target);
+			ShotResult shot = game.doShot((String) session.getAttribute("login"), target);
 			switch(shot){
 			case NotYourTurn:
 				request.setAttribute("msg", "Não é sua vez");
