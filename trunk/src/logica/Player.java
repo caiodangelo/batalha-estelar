@@ -67,9 +67,9 @@ public class Player {
 	}
 
 	/**
-	 * 
-	 * @param shot Shot 
-	 * @return
+	 * Process a shot made by the other player.
+	 * @param shot Shot to process.
+	 * @return	   ShotResult related to the result of the shot.
 	 */
 	public ShotResult getShot(Point shot)
 	{
