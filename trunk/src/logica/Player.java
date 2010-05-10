@@ -1,5 +1,6 @@
 package logica;
 
+import java.awt.Point;
 import java.util.Vector;
 
 /**
@@ -64,5 +65,38 @@ public class Player {
 	{
 		return board.getRestrictedBoardState();
 	}
-	
+
+	/**
+	 * 
+	 * @param shot Shot 
+	 * @return
+	 */
+	public ShotResult getShot(Point shot)
+	{
+		Vector<Point> shotList = board.getShotList();
+		Vector<Ship> shipList = board.getShipList();
+		Ship ship = null;
+		
+		// Check if shot was already done before.
+		if (shotList.contains(shot)) { return ShotResult.ShotAlreadyDone; }
+		shotList.add(shot);
+		// Check if a ship was hit.
+		for (Ship tempShip : shipList)
+		{
+			if (tempShip.isAt(shot))
+			{
+				ship = tempShip;
+				break;
+			}
+		}
+		if (ship == null) { return ShotResult.Miss; }
+		// Check if the ship that was hit sank.
+		if (!ship.isSunk(shotList)) { return ShotResult.ShipHit; }
+		// Check if all ships have sunk.
+		for (Ship tempShip : shipList)
+		{
+			if (!tempShip.isSunk(shotList)) { return ShotResult.ShipSunk; }
+		}
+		return ShotResult.AllShipsSunk;
+	}
 }

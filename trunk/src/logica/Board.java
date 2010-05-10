@@ -36,15 +36,21 @@ public class Board {
 		this.shipList = ships;
 	}
 	
+	public Vector<Point> getShotList()
+	{
+		return this.shotList;
+	}
+	
 	public Cell[][] getBoardState()
 	{
 		Cell[][] boardState = grid.clone();
-		
+		return boardState;
 	}
 	
 	public Cell[][] getRestrictedBoardState()
 	{
 		Cell[][] restrictedBoardState = grid.clone();
+		return restrictedBoardState;
 	}
 	
 }
