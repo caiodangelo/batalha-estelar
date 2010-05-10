@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sala Cheia</title>
+<title>Sala Cheia - Batalha Espacial - Caio e Vitor</title>
 </head>
 <body>
 Ops... a sala está lotada. Tente novamente mais tarde.<br /><br />

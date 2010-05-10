@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!--meta http-equiv="Refresh" CONTENT="10;" /-->  
-<title>Aguarde o seu adversário</title>
+<title>Aguarde o seu adversário - Batalha Espacial - Caio e Vitor</title>
 </head>
 <body>
 <p>Aguarde enquanto o seu adversário preenche o tabuleiro dele.</p>
