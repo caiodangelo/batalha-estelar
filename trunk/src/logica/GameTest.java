@@ -19,17 +19,17 @@ public class GameTest extends TestCase {
 	}
 	private void setFullGame() throws Exception {
 		shipList = new Vector<Ship>();
-		shipList.add(new Ship("xwing1", 1, new Point(1,1)));
-		shipList.add(new Ship("xwing2", 1, new Point(1,3)));
-		shipList.add(new Ship("xwing3", 1, new Point(1,5)));
-		shipList.add(new Ship("xwing4", 1, new Point(1,7)));
-		shipList.add(new Ship("xwing5", 1, new Point(1,9)));
-		shipList.add(new Ship("falcon1", 2, new Point(3,1)));
-		shipList.add(new Ship("falcon2", 2, new Point(3,4)));
-		shipList.add(new Ship("falcon3", 2, new Point(3,7)));
-		shipList.add(new Ship("millenium1", 3, new Point(6,1)));
-		shipList.add(new Ship("millenium2", 3, new Point(6,5)));
-		shipList.add(new Ship("millenium3", 3, new Point(6,9)));
+		shipList.add(new Ship("xwing1", 1, new Point(0,0)));
+		shipList.add(new Ship("xwing2", 1, new Point(0,2)));
+		shipList.add(new Ship("xwing3", 1, new Point(0,4)));
+		shipList.add(new Ship("xwing4", 1, new Point(0,6)));
+		shipList.add(new Ship("xwing5", 1, new Point(0,8)));
+		shipList.add(new Ship("falcon1", 2, new Point(2,0)));
+		shipList.add(new Ship("falcon2", 2, new Point(2,3)));
+		shipList.add(new Ship("falcon3", 2, new Point(2,6)));
+		shipList.add(new Ship("millenium1", 3, new Point(5,0)));
+		shipList.add(new Ship("millenium2", 3, new Point(5,4)));
+		shipList.add(new Ship("millenium3", 3, new Point(5,8)));
 		game.addPlayer("player1");
 		game.initializePlayerBoard("player1", shipList);
 		game.addPlayer("player2");
@@ -60,11 +60,11 @@ public class GameTest extends TestCase {
 //	}
 	public void testGetBoardState() throws Exception {
 		game.startGame();
-		assertEquals(true, game.getPlayerBoard("player1")[1][1].hasShip());
+		assertEquals(true, game.getPlayerBoard("player1")[0][0].hasShip());
 	}
 	public void testGetOpponentBoardState() throws Exception {
 		game.startGame();
-		assertEquals(false, game.getOpponentBoard("player1")[1][1].hasShip());
+		assertEquals(false, game.getOpponentBoard("player1")[0][0].hasShip());
 	}
 
 }
