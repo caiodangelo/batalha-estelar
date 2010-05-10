@@ -24,13 +24,33 @@ background-color:blue;
 Game game = (Game) application.getAttribute("game");
 String nome = (String) session.getAttribute("login");
 %>
-<div class="info"><% %></div>
+<div class="info">
+<%
+HtmlTools.getMessage((String) request.getAttribute("msg"));
+%>
+</div>
 <div class="tabuleiros">
 <% 
 HtmlTools.generateHtmlTable(game.getPlayerBoard(nome),game.getBoardSize());
 HtmlTools.generateHtmlTable(game.getOpponentBoard(nome),game.getBoardSize());
 %>
 </div>
-<div class="options"><% %></div>
+<div class="options">
+<%
+if(game.IsPlayersTurn(nome)){
+%>
+<form action="RealizaAtaque" method="post">
+Posição x:<input type="text" name="posx" /><br />
+Posição y:<input type="text" name="posy" /><br />
+<input type="submit" value="Envia" />"
+</form>
+<%	
+}
+%>
+</div>
+<div class="options">
+<% 
+%>
+</div>
 </body>
 </html>
