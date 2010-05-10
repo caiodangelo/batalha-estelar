@@ -14,6 +14,7 @@ public class BoardTest extends TestCase {
 		shipList = new Vector<Ship>();
 		shipList.add(new Ship("teste1",1,new Point(1,1)));
 		shipList.add(new Ship("teste2",1,new Point(3,1)));
+		shipList.add(new Ship("teste3",1,new Point(14,14)));
 		board = new Board(15,shipList);
 		shotList = board.getShotList();
 		shotList.add(new Point(1,1));
@@ -43,6 +44,12 @@ public class BoardTest extends TestCase {
 	}
 	public void testBoardStateHit55() throws Exception {
 		assertEquals(false, board.getBoardState()[5][5].hasShip());
+	}
+	public void testBoardStateShip1414() throws Exception {
+		assertEquals(true, board.getBoardState()[14][14].hasShip());
+	}
+	public void testBoardStateHit1414() throws Exception {
+		assertEquals(false, board.getBoardState()[14][14].isHit());
 	}
 
 }
