@@ -1,5 +1,6 @@
 package logica;
 
+import java.awt.Point;
 import java.util.Random;
 import java.util.Vector;
 
@@ -118,9 +119,18 @@ public class Game {
 	 * @return 			 True if the shot was completed, False 
 	 * 					 if it wasn't. 
 	 */
-	public boolean doShot(String playerName)
+	public boolean doShot(String playerName, Point shot)
 	{
-		return false;
+		Player playerShooting = getPlayerByName(playerName);
+		Player playerBeingShot = getOpposingPlayer(playerName);
+		// Test if the player attempting the shot is this turn's player.
+		if (turn != playerShooting)
+		{
+			return false;
+		}
+		
+		playerBeingShot.getShot(shot);
+		return true;
 	}
 	
 	/**
@@ -148,14 +158,7 @@ public class Game {
 	public Cell[][] getOpponentBoard(String playerName)
 	{
 		Player player;
-		if (getPlayerByName(playerName) == player1)
-		{
-			player = player2;
-		}
-		else 
-		{
-			player = player1;
-		}
+		player = getOpposingPlayer(playerName);
 		return player.getRestrictedBoardState();
 	}
 	
@@ -175,6 +178,23 @@ public class Game {
 			return player2;
 		}
 		else return null;
+	}
+	
+	/**
+	 * Gets the opposing player of a given player's name.
+	 * @param playerName Name of the player.
+	 * @return		 	 The opposing player's instance.
+	 */
+	private Player getOpposingPlayer(String playerName)
+	{
+		if (playerName.equals(player1.getPlayerName()))
+		{
+			return player2;
+		}
+		else
+		{
+			return player1;
+		}
 	}
 	
 	/**

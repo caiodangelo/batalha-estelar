@@ -18,7 +18,6 @@ public class Ship {
 	private String name;
 	private int size;
 	private Point position;
-	private boolean sunk;
 	
 	/**
 	 * Constructs and Initializes a new ship at the
@@ -32,7 +31,6 @@ public class Ship {
 		this.name = name;
 		this.size = size;
 		this.position = position;
-		this.sunk = false;
 	}
 	
 	public String getName()
@@ -43,16 +41,6 @@ public class Ship {
 	public int getSize()
 	{
 		return this.size;
-	}
-
-	public boolean getSunk()
-	{
-		return this.sunk;
-	}
-	
-	public void setSunk(boolean sunk)
-	{
-		this.sunk = sunk;
 	}
 	
 	public Point getPosition()
@@ -109,5 +97,21 @@ public class Ship {
 		return ((this.position.x <= location.x) && (this.position.x + this.size > location.x) &&
 				(this.position.y <= location.y) && (this.position.y + this.size > location.y));
 	}
-
+	
+	/**
+	 * Checks if a ship is sunk.
+	 * @param Shots the shots list.
+	 * @return		True if the ship is sunk, False if it's not.
+	 */
+	public boolean isSunk(Vector<Point> Shots)
+	{
+		for (Point point : getAllLocations())
+		{
+			if (!Shots.contains(point))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 }
