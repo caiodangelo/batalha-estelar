@@ -59,6 +59,9 @@ Posição y:<input type="text" name="posy" /><br />
 %>
 </div>
 <div class="options">
+<form action="FinalizaJogo" method="post">
+<input type="submit" value="Encerrar partida" />
+</form>
 <% 
 %>
 </div>
