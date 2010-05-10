@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Refresh" CONTENT="10;" />  
 <title>Aguarde o seu adversário</title>
 </head>
 <body>

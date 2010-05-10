@@ -2,10 +2,23 @@
     pageEncoding="ISO-8859-1"
     import="logica.HtmlTools,logica.Game"
     %>
+<%
+Game game = (Game) application.getAttribute("game");
+String nome = (String) session.getAttribute("login");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<%
+if(!game.isPlayersTurn(nome))
+{
+%>
+<meta http-equiv="Refresh" CONTENT="10;" />  
+<%
+}
+%>
 <title>Insert title here</title>
 <style type="text/css">
 .hit{
@@ -20,10 +33,6 @@ background-color:blue;
 </style>
 </head>
 <body>
-<%
-Game game = (Game) application.getAttribute("game");
-String nome = (String) session.getAttribute("login");
-%>
 <div class="info">
 <%
 HtmlTools.getMessage((String) request.getAttribute("msg"));
