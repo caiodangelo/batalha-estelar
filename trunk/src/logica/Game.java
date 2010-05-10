@@ -72,7 +72,10 @@ public class Game {
 		{
 			for (int j = i + 1; j < shipList.size(); j++)
 			{
-				if (shipList.get(i).conflictsWith(shipList.get(j)))
+				Ship ship1 = shipList.get(i);
+				Ship ship2 = shipList.get(j);
+				if (ship1.conflictsWith(ship2))
+				//if (shipList.get(i).conflictsWith(shipList.get(j)))
 				{
 					return ValidationCode.ShipLocationError;
 				}
@@ -177,8 +180,7 @@ public class Game {
 	 */
 	public Cell[][] getOpponentBoard(String playerName)
 	{
-		Player player;
-		player = getOpposingPlayer(playerName);
+		Player player = getOpposingPlayer(playerName);
 		return player.getRestrictedBoardState();
 	}
 	
@@ -223,6 +225,10 @@ public class Game {
 	 */
 	private boolean isGameReady()
 	{
+		if (player1 == null || player2 == null)
+		{
+			return false;
+		}
 		if (player1.isReady() && player2.isReady())
 		{
 			return true;

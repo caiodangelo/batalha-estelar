@@ -23,14 +23,13 @@ public class RecebeNavios extends HttpServlet {
      */
     public RecebeNavios() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -52,7 +51,7 @@ public class RecebeNavios extends HttpServlet {
 				}
 				else{
 					//apenas 1 jogador pronto, envia para página de espera
-					request.getRequestDispatcher("espera").forward(request, response);
+					request.getRequestDispatcher("espera.jsp").forward(request, response);
 				}
 				break;
 			case ShipMissing:
@@ -79,13 +78,13 @@ public class RecebeNavios extends HttpServlet {
 		Vector<Ship> temp = new Vector<Ship>();
 		Integer x, y;
 		for(int i=1; i<=quant; i++){
-			String callerX = "wxing"+Integer.toString(i)+"x";
-			String callerY = "wxing"+Integer.toString(i)+"y";
+			String callerX = "xwing"+Integer.toString(i)+"x";
+			String callerY = "xwing"+Integer.toString(i)+"y";
 			if((request.getParameter(callerX)!=null)&&(request.getParameter(callerY)!=null)){
 				x = Integer.parseInt(request.getParameter(callerX));
 				y = Integer.parseInt(request.getParameter(callerY));
 				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
-					temp.add(new Ship("Xwing"+i,5,new Point(x,y)));
+					temp.add(new Ship("Xwing"+i,1,new Point(x,y)));
 				}
 			}
 		}
@@ -108,7 +107,7 @@ public class RecebeNavios extends HttpServlet {
 				x = Integer.parseInt(request.getParameter(callerX));
 				y = Integer.parseInt(request.getParameter(callerY));
 				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
-					temp.add(new Ship("Falcon"+i,5,new Point(x,y)));
+					temp.add(new Ship("Falcon"+i,2,new Point(x,y)));
 				}
 			}
 		}
@@ -131,7 +130,7 @@ public class RecebeNavios extends HttpServlet {
 				x = Integer.parseInt(request.getParameter(callerX));
 				y = Integer.parseInt(request.getParameter(callerY));
 				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
-					temp.add(new Ship("Destroyer"+i,5,new Point(x,y)));
+					temp.add(new Ship("Destroyer"+i,3,new Point(x,y)));
 				}
 			}
 		}

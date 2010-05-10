@@ -25,6 +25,7 @@ public class Board {
 		this.shotList = new Vector<Point>();
 		this.shipList = shipList;
 		this.boardSize = boardSize;
+		this.board = null;
 	}
 
 	public Vector<Ship> getShipList()
