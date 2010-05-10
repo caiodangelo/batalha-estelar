@@ -1,6 +1,9 @@
 package logica;
 
+import java.awt.Point;
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,52 +35,85 @@ public class RecebeNavios extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		ServletContext application = getServletContext();
+		Game game = (Game) application.getAttribute("game");
+		Vector<Ship> ships = new Vector<Ship>();
+		if((getXwings(5,request,ships))&&(getFalcons(3,request,ships))&&(getDestroyers(3,request,ships))){
+			game.validateShipList(ships);
+		}
+		else{
+			request.setAttribute("error", "Preencha todos os campos");
+			request.getRequestDispatcher("formNavios.jsp").forward(request, response);
+		}
+		}
+	
+	private boolean getXwings(int quant, HttpServletRequest request, Vector<Ship> ships){
+		Vector<Ship> temp = new Vector<Ship>();
+		Integer x, y;
+		for(int i=1; i<=quant; i++){
+			String callerX = "wxing"+Integer.toString(i)+"x";
+			String callerY = "wxing"+Integer.toString(i)+"y";
+			if((request.getParameter(callerX)!=null)&&(request.getParameter(callerY)!=null)){
+				x = Integer.parseInt(request.getParameter(callerX));
+				y = Integer.parseInt(request.getParameter(callerY));
+				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
+					temp.add(new Ship("Xwing"+i,5,new Point(x,y)));
+				}
+			}
+		}
+		if(temp.size()==quant){
+			ships.addAll(temp);
+		}
+		else{
+			return false;
+		}
+		return true;
 	}
 	
-	private Vector<Integer> getXwings(int quant, HttpServletRequest request){
-		Vector<Integer> positions = new Vector<Integer>();
-		Integer x;
+	private boolean getFalcons(int quant, HttpServletRequest request, Vector<Ship> ships){
+		Vector<Ship> temp = new Vector<Ship>();
+		Integer x, y;
 		for(int i=1; i<=quant; i++){
-			String caller = "wxing"+Integer.toString(i);
-			if(request.getParameter(caller)!=null){
-				x = Integer.parseInt(request.getParameter(caller));
-				if((x>=0)&&(x<225)){
-					positions.add(x);
+			String callerX = "falcon"+Integer.toString(i)+"x";
+			String callerY = "falcon"+Integer.toString(i)+"y";
+			if((request.getParameter(callerX)!=null)&&(request.getParameter(callerY)!=null)){
+				x = Integer.parseInt(request.getParameter(callerX));
+				y = Integer.parseInt(request.getParameter(callerY));
+				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
+					temp.add(new Ship("Falcon"+i,5,new Point(x,y)));
 				}
-			}			
+			}
 		}
-		return positions;
+		if(temp.size()==quant){
+			ships.addAll(temp);
+		}
+		else{
+			return false;
+		}
+		return true;
 	}
 	
-	private Vector<Integer> getFalcons(int quant, HttpServletRequest request){
-		Vector<Integer> positions = new Vector<Integer>();
-		Integer x;
+	private boolean getDestroyers(int quant, HttpServletRequest request, Vector<Ship> ships){
+		Vector<Ship> temp = new Vector<Ship>();
+		Integer x, y;
 		for(int i=1; i<=quant; i++){
-			String caller = "falcon"+Integer.toString(i);
-			if(request.getParameter(caller)!=null){
-				x = Integer.parseInt(request.getParameter(caller));
-				if((x>=0)&&(x<225)){
-					positions.add(x);
+			String callerX = "destroyer"+Integer.toString(i)+"x";
+			String callerY = "destroyer"+Integer.toString(i)+"y";
+			if((request.getParameter(callerX)!=null)&&(request.getParameter(callerY)!=null)){
+				x = Integer.parseInt(request.getParameter(callerX));
+				y = Integer.parseInt(request.getParameter(callerY));
+				if((x>0)&&(x<16)&&(y>0)&&(y<16)){
+					temp.add(new Ship("Destroyer"+i,5,new Point(x,y)));
 				}
-			}			
+			}
 		}
-		return positions;
-	}
-	
-	private Vector<Integer> getDestroyers(int quant, HttpServletRequest request){
-		Vector<Integer> positions = new Vector<Integer>();
-		Integer x;
-		for(int i=1; i<=quant; i++){
-			String caller = "destroyer"+Integer.toString(i);
-			if(request.getParameter(caller)!=null){
-				x = Integer.parseInt(request.getParameter(caller));
-				if((x>=0)&&(x<225)){
-					positions.add(x);
-				}
-			}			
+		if(temp.size()==quant){
+			ships.addAll(temp);
 		}
-		return positions;
+		else{
+			return false;
+		}
+		return true;
 	}
 
 }
