@@ -19,7 +19,7 @@ if(!game.isPlayersTurn(nome))
 <%
 }
 %>
-<title>Insert title here</title>
+<title>Jogo em andamento - Batalha Espacial - Caio e Vitor</title>
 <style type="text/css">
 .hit{
 background-color:red;
