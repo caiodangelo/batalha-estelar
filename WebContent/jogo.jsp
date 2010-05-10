@@ -35,6 +35,7 @@ background-color:blue;
 <body>
 <div class="info">
 <%
+out.println("<b>"+HtmlTools.getErrors((String)request.getAttribute("error"))+"</b>");
 HtmlTools.getMessage((String) request.getAttribute("msg"));
 %>
 </div>
