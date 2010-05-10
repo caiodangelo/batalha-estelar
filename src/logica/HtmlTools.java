@@ -45,9 +45,11 @@ public class HtmlTools {
 	public static String generateHtmlTable(Cell[][] table, int quant){
 		String tabela = "";
 		tabela = tabela+"<table>";
-		for(int i=0; i<quant; i++){
+		for(int i=0; i<quant; i++)
+		{
 			tabela = tabela+"<tr>";
-			for(int j=0; j<quant; j++){
+			for(int j=0; j<quant; j++)
+			{
 				Cell atual = table[i][j];
 				if(atual.isHit()){
 					tabela = tabela+"<td class=\"hit\">&nbsp;</td>";

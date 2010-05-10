@@ -12,10 +12,10 @@
 <p>Aguarde enquanto o seu adversário preenche o tabuleiro dele.</p>
 <%
 Game game = (Game) application.getAttribute("game");
-while(!game.startGame()){
-	//wait other player
+if (game.startGame())
+{
+	request.getRequestDispatcher("jogo.jsp").forward(request, response);
 }
-request.getRequestDispatcher("jogo.jsp").forward(request, response);
 %>
 </body>
 </html>
