@@ -29,4 +29,14 @@
     <servlet-name>RecebeNavios</servlet-name>
     <url-pattern>/RecebeNavios</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RealizaAtaque</display-name>
+    <servlet-name>RealizaAtaque</servlet-name>
+    <servlet-class>logica.RealizaAtaque</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RealizaAtaque</servlet-name>
+    <url-pattern>/RealizaAtaque</url-pattern>
+  </servlet-mapping>
 </web-app>
