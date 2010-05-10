@@ -153,6 +153,7 @@ public class Game {
 		{
 			this.gameState = GameState.Ended;
 		}
+		changeTurns();
 		return result;
 	}
 	
@@ -234,5 +235,20 @@ public class Game {
 			return true;
 		}
 		return false;
+	}
+	
+	/**
+	 * Swaps Turns.
+	 */
+	private void changeTurns()
+	{
+		if (turn.equals(player1))
+		{
+			turn = player2;
+		}
+		else 
+		{
+			turn = player1;
+		}
 	}
 }
