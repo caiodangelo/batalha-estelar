@@ -42,6 +42,29 @@ public class HtmlTools {
 		return table;
 	}
 	
+	public static String generateHtmlTable(Cell[][] table, int quant){
+		String tabela = "";
+		tabela = tabela+"<table>";
+		for(int i=0; i<quant; i++){
+			tabela = tabela+"<tr>";
+			for(int j=0; j<quant; j++){
+				Cell atual = table[i][j];
+				if(atual.isHit()){
+					tabela = tabela+"<td class=\"hit\">&nbsp;</td>";
+				}
+				else if(atual.hasShip()){
+					tabela = tabela+"<td class=\"ship\">&nbsp;</td>";
+				}
+				else{
+					tabela = tabela+"<td class=\"free\">&nbsp;</td>";
+				}				
+			}
+			tabela = tabela+"</tr>";
+		}
+		tabela = tabela+"</table>";
+		return tabela;
+	}
+	
 	public static String generateHtmlShipsForm(int xwing, int falcon, int destroyer){
 		String form;
 		form = "<br>";
