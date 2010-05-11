@@ -30,7 +30,10 @@ if(game != null)
 if (game == null)
 { // Oponente saiu do jogo
 	response.sendRedirect("saiu.html");
-	//request.getRequestDispatcher("saiu.html").forward(request, response);
+}
+if (game.isGameEnded())
+{
+	response.sendRedirect("fimDeJogo.jsp");
 }
 %>
 <div id="seutabuleiro">

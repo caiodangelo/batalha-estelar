@@ -6,15 +6,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="default.css" />
 <title>Batalha Espacial - Caio e Vitor</title>
 </head>
 <body>
-<form action="RecebeNavios" method="post">
 <%
 	out.println("<b>"+HtmlTools.getErrors((String)request.getAttribute("error"))+"</b>");
+%>
+<div class="formTable">
+<%
 	out.println(HtmlTools.generateHtmlTable(15,15,true));
+%>
+</div>
+<form class="shipForm" action="RecebeNavios" method="post">
+<%
 	out.println(HtmlTools.generateHtmlShipsForm(5,3,3));
 %>
+<div class="clear"></div>
 <br />
 <input type="submit" value="Envia" />
 </form>

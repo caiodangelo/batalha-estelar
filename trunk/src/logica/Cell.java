@@ -12,7 +12,7 @@ package logica;
 public class Cell{
 	
 	private boolean isHit;
-	private boolean hasShip;	
+	private boolean hasShip;
 	
 	public Cell() {
 		this.isHit = false;

@@ -21,21 +21,21 @@ public class PlayerTest extends TestCase {
 		assertEquals(true, player.isReady());
 	}
 	
-	public void testGetShotShipSunk() throws Exception {
-		assertEquals(ShotResult.ShipSunk, player.getShot(new Point(1,1)));
-	}
-	
-	public void testGetShotShipHit() throws Exception {
-		assertEquals(ShotResult.ShipHit, player.getShot(new Point(3,1)));
-	}
+//	public void testGetShotShipSunk() throws Exception {
+//		assertEquals(ShotResult.ShipSunk, player.getShot(new Point(1,1)));
+//	}
+//	
+//	public void testGetShotShipHit() throws Exception {
+//		assertEquals(ShotResult.ShipHit, player.getShot(new Point(3,1)));
+//	}
 	
 	public void testGetShotMiss() throws Exception {
 		assertEquals(ShotResult.Miss, player.getShot(new Point(5,5)));
 	}
 	
-	public void testGetShotShipHitNotMainLocationPoint() throws Exception {
-		assertEquals(ShotResult.ShipHit, player.getShot(new Point(4,1)));
-	}
+//	public void testGetShotShipHitNotMainLocationPoint() throws Exception {
+//		assertEquals(ShotResult.ShipHit, player.getShot(new Point(4,1)));
+//	}
 	
 	public void testGetShotAllShipsSunk() throws Exception {
 		player.getShot(new Point(1,1));

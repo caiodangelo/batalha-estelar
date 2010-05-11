@@ -14,6 +14,7 @@ public class Game {
 	private GameState gameState;
 	private Player player1;
 	private Player player2;
+	private String winner;
 	private Player turn;
 	private int boardSize;
 	
@@ -36,6 +37,11 @@ public class Game {
 	public int getBoardSize()
 	{
 		return this.boardSize;
+	}
+	
+	public String getWinner()
+	{
+		return this.winner;
 	}
 	
 	/**
@@ -140,6 +146,15 @@ public class Game {
 	}
 	
 	/**
+	 * Checks if the game has ended.
+	 * @return True if the game ended, False if it didn't.
+	 */
+	public boolean isGameEnded()
+	{
+		return (gameState == GameState.Ended);
+	}
+	
+	/**
 	 * Gets the name of the opposing player.
 	 * @param playerName The player asking for the name.
 	 * @return			 The opossing player's name.
@@ -177,6 +192,7 @@ public class Game {
 		if (result == ShotResult.AllShipsSunk)
 		{
 			this.gameState = GameState.Ended;
+			this.winner = playerName;
 		}
 		changeTurns();
 		return result;

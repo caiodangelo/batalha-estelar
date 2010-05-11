@@ -52,14 +52,26 @@ public class RealizaAtaque extends HttpServlet {
 				case Miss:
 					request.setAttribute("msg", "Água...");
 					break;
-				case ShipHit:
-					request.setAttribute("msg", "Nave acertada");
+				case XWingHit:
+					request.setAttribute("msg", "X-Wing acertada!");
 					break;
-				case ShipSunk:
-					request.setAttribute("msg", "Nave derrubada");
+				case FalconHit:
+					request.setAttribute("msg", "Millenium Falcon acertada!");
+					break;
+				case DestroyerHit:
+					request.setAttribute("msg", "Destroyer acertado!");
+					break;
+				case XWingSunk:
+					request.setAttribute("msg", "Uma X-Wing foi derrubada!");
+					break;
+				case FalconSunk:
+					request.setAttribute("msg", "Uma Millenium Falcon foi derrubada!");
+					break;
+				case DestroyerSunk:
+					request.setAttribute("msg", "Um Destroyer foi derrubado!");
 					break;
 				case AllShipsSunk:
-					request.setAttribute("msg", "Todas as naves foram derrubadas");
+					request.setAttribute("msg", "Todas as naves foram derrubadas!!");
 					break;
 				default:
 					request.setAttribute("msg", "Insira um campo válido");
