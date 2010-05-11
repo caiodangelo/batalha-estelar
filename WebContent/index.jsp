@@ -9,11 +9,13 @@
 </head>
 <body>
 <h1>Bem vindo ao jogo de batalha espacial</h1>
-<fieldset id="loginFieldset"><legend>Escolha seu nick</legend>
+<div id="loginFieldSet">
+<fieldset><legend>Escolha seu nick</legend>
 <form action="Login" method="post">
 <input type="text" name="nick" /><br />
 <input type="submit" value="Entrar" />
 </form>
 </fieldset>
+</div>
 </body>
 </html>
