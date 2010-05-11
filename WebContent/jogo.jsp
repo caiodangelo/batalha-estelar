@@ -37,11 +37,13 @@ if (game.isGameEnded())
 }
 %>
 <div id="seutabuleiro">
-	<% 
+	<h2><%= nome %></h2>
+	<%
 	out.println(HtmlTools.generateHtmlTable(game.getPlayerBoard(nome),game.getBoardSize(), false));
 	%>
 </div>
 <div id="tabuleiroinimigo">
+	<h2><%= game.getOpponentPlayerName(nome) %></h2>
 	<%
 	out.println(HtmlTools.generateHtmlTable(game.getOpponentBoard(nome),game.getBoardSize(), true));
 	%>

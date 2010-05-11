@@ -81,10 +81,12 @@ div.aguarde {
 .ship{
 	background-color:blue;
 }
-.free, .miss{
+.free{
 	background-color:white;
 }
-
+.miss{
+	background-color:#FFFACD;
+}
 #endgame {
 	padding-top: 20px;
 }
