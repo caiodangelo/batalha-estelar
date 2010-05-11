@@ -19,11 +19,6 @@ if(game.startGame())
 {
 	request.getRequestDispatcher("jogo.jsp").forward(request, response);
 }
-else{
-	%>
-	<a href="espera.jsp">Refresh</a>
-<%	
-}
 %>
 </div>
 </body>

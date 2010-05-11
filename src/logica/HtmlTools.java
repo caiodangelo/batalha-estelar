@@ -79,26 +79,26 @@ public class HtmlTools {
 	
 	public static String generateHtmlShipsForm(int xwing, int falcon, int destroyer){
 		String form;
-		form = "<br>";
+		form = "<div class=\"xwingforms\">";
 		for(int i=0; i<xwing; i++){
 			//monta a quantidade de x-wings desejada
-			form = form+"X-Wing "+(i+1)+" x: <input type=\"text\" name=\"xwing"+(i+1)+"x\">";
+			form = form+"<h3>X-Wing "+(i+1)+" </h3> x: <input type=\"text\" name=\"xwing"+(i+1)+"x\">";
 			form = form+"  y: <input type=\"text\" name=\"xwing"+(i+1)+"y\"><br>";
 		}
-		form = form+"<br>";
+		form = form+"</div><div class=\"falconforms\">";
 		for(int j=0; j<falcon; j++){
 			//monta a quantidade de falcons desejada
-			form = form+"Millenium Falcon "+(j+1)+" x: <input type=\"text\" name=\"falcon"+(j+1)+"x\">";
+			form = form+"<h3>Millenium Falcon "+(j+1)+"</h3> x: <input type=\"text\" name=\"falcon"+(j+1)+"x\">";
 			form = form+"  y: <input type=\"text\" name=\"falcon"+(j+1)+"y\"><br>";
-			
 		}
-		form = form+"<br>";
+		form = form+"</div><div class=\"destroyerforms\">";
 		for(int k=0; k<destroyer; k++){
 			//monta a quantidade de destroyers desejada
-			form = form+"Destroyer "+(k+1)+" x: <input type=\"text\" name=\"destroyer"+(k+1)+"x\">";
+			form = form+"<h3>Destroyer "+(k+1)+"</h3> x: <input type=\"text\" name=\"destroyer"+(k+1)+"x\">";
 			form = form+"  y: <input type=\"text\" name=\"destroyer"+(k+1)+"y\"><br>";
 			
 		}
+		form = form+"</div>";
 		return form;
 	}
 	

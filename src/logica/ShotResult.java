@@ -1,5 +1,7 @@
 package logica;
 
 public enum ShotResult {
-	NotYourTurn, ShotAlreadyDone, Miss, ShipHit, ShipSunk, AllShipsSunk
+	NotYourTurn, ShotAlreadyDone, Miss,
+	XWingHit, FalconHit, DestroyerHit,
+	XWingSunk, FalconSunk, DestroyerSunk, AllShipsSunk
 }

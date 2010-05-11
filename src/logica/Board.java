@@ -84,12 +84,15 @@ public class Board {
 		}
 		
 		Cell[][] restrictedBoard = board.clone();
-		// Set to false all hasShip of the Cells
+		// Set to false all hasShip of the Cells except the ones that have been hit
 		for (int i = 0; i < boardSize; i++)
 		{
 			for (int j = 0; j < boardSize; j++)
 			{
-				restrictedBoard[i][j].setHasShip(false);
+				if (!restrictedBoard[i][j].isHit())
+				{
+					restrictedBoard[i][j].setHasShip(false);
+				}
 			}
 		}
 		return restrictedBoard;

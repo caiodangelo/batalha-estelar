@@ -9,7 +9,9 @@ body {
 }
 table {
 	margin-bottom: 50px;
-	}
+	margin-left: auto;
+	margin-right: auto;
+}
 table, td, tr {
 	text-align: center;
 	border-collapse: collapse;
@@ -21,23 +23,51 @@ td {
 	width: 20px;
 }
 
+.shipForm input {
+	size: 20px;
+}
 div.aguarde {
 	padding-top: 100px;
 	padding-bottom: 100px;
-	}
+}
 .clear {
 	clear: both;
-	}
+}
 
 .info {
 	margin-bottom: 10px;
 	text-align: center;
-	}
+}
 	
+.formTable td {
+	background-color: white;
+}
+
+.xwingforms, .falconforms, .destroyerforms {
+	float: left;
+	padding-right: 80px;
+}
+
+.xwingforms {
+	padding-left: 120px;
+}
+
+.xwingforms input {
+	width: 30px;
+}
+
+.falconforms input {
+	width: 30px;
+}
+
+.destroyerforms input {
+	width: 30px;
+}
+
 #msgErro {
 	color: red;
 	text-align: center;
-	}
+}
 	
 #seutabuleiro {
 	float: left;
@@ -55,9 +85,6 @@ div.aguarde {
 	background-color:white;
 }
 
-#actions {
-	
-}
 #endgame {
 	padding-top: 20px;
 }

@@ -91,11 +91,39 @@ public class Player {
 		}
 		if (ship == null) { return ShotResult.Miss; }
 		// Check if the ship that was hit sank.
-		if (!ship.isSunk(shotList)) { return ShotResult.ShipHit; }
+		if (!ship.isSunk(shotList))
+		{
+			if (ship.getName().startsWith("Xwing"))
+			{
+				return ShotResult.XWingHit;
+			}
+			else if (ship.getName().startsWith("Falcon"))
+			{
+				return ShotResult.FalconHit;
+			}
+			else
+			{
+				return ShotResult.DestroyerHit;
+			}
+		}
 		// Check if all ships have sunk.
 		for (Ship tempShip : shipList)
 		{
-			if (!tempShip.isSunk(shotList)) { return ShotResult.ShipSunk; }
+			if (!tempShip.isSunk(shotList))
+			{
+				if (ship.getName().startsWith("Xwing"))
+				{
+					return ShotResult.XWingSunk;
+				}
+				else if (ship.getName().startsWith("Falcon"))
+				{
+					return ShotResult.FalconSunk;
+				}
+				else
+				{
+					return ShotResult.DestroyerSunk;
+				}
+			}
 		}
 		return ShotResult.AllShipsSunk;
 	}
