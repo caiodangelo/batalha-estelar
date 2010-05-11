@@ -48,14 +48,23 @@ public class HtmlTools {
 		for(int i=-1; i<quant; i++)
 		{
 			tabela = tabela+"<tr>";
-			for(int j=0; j<quant; j++)
+			for(int j=-1; j<quant; j++)
 			{
-//				if (i==-1)
-//				{
-//					int k = j + 1;
-//					tabela = tabela+"<th>"+k+"</th>";
-//					continue;
-//				}
+				if (i==-1)
+				{
+					if(j==-1){
+						tabela = tabela+"<th>&nbsp;</th>";
+					}
+					else{
+						tabela = tabela+"<th>"+j+"</th>";
+					}					
+					continue;
+				}
+				if(j==-1)
+				{
+					tabela = tabela+"<td>"+i+"</td>";
+					continue;
+				}
 				Cell atual = table[i][j];
 				if(atual.isHit()){
 					if (atual.hasShip())
