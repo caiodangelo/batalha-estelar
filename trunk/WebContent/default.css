@@ -48,14 +48,10 @@ div.aguarde {
 	background-color:red;
 }
 .ship{
-	background-color:red;
+	background-color:blue;
 }
-.free{
+.free, .miss{
 	background-color:white;
-}
-
-.miss {
-	background-color:gray;
 }
 
 #actions {
