@@ -52,7 +52,14 @@ public class HtmlTools {
 			{
 				Cell atual = table[i][j];
 				if(atual.isHit()){
-					tabela = tabela+"<td class=\"hit\">&nbsp;</td>";
+					if (atual.hasShip())
+					{
+						tabela = tabela+"<td class=\"hitShip\">&nbsp;</td>";
+					}
+					else
+					{
+						tabela = tabela+"<td class=\"miss\">&nbsp;</td>";
+					}
 				}
 				else if(atual.hasShip()){
 					tabela = tabela+"<td class=\"ship\">&nbsp;</td>";

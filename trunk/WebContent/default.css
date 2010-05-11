@@ -1,0 +1,37 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+table, td, tr {
+	text-align: center;
+	border-collapse: collapse;
+	border: 2px solid black;
+}
+td {
+	vertical-align: center;
+	height: 20px;
+	width: 20px;
+}
+.hitShip{
+	background-color:red;
+}
+.ship{
+	background-color:red;
+}
+.free{
+	background-color:blue;
+}
+.seutabuleiro table {
+	float: left;
+}
+.tabuleiroinimigo table {
+	border: 2px solid red;
+	float: right;
+}
+
+#actions {
+	float: left;
+}
