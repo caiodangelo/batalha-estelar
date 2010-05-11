@@ -69,11 +69,11 @@ public class HtmlTools {
 				if(atual.isHit()){
 					if (atual.hasShip())
 					{
-						tabela = tabela+"<td class=\"hitShip\">X</td>";
+						tabela = tabela+"<td class=\"hitShip\"><img src=\"img/fire.png\" width=\"20px\" height=\"20px\" border=\"0\" /></td>";
 					}
 					else
 					{
-						tabela = tabela+"<td class=\"miss\">X</td>";
+						tabela = tabela+"<td class=\"miss\"><img src=\"img/water.png\" width=\"20px\" height=\"20px\" border=\"0\" /></td>";
 					}
 				}
 				else if(atual.hasShip()){
