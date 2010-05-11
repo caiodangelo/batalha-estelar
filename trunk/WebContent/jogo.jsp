@@ -29,7 +29,8 @@ if(game != null)
 <%
 if (game == null)
 { // Oponente saiu do jogo
-	request.getRequestDispatcher("saiu.html").forward(request, response);
+	response.sendRedirect("saiu.html");
+	//request.getRequestDispatcher("saiu.html").forward(request, response);
 }
 %>
 <div id="seutabuleiro">
