@@ -66,7 +66,7 @@ public class HtmlTools {
 				}
 				else{
 					if(enemy)
-						tabela = tabela+"<a href=\"RealizaAtaque?posx="+i+"&posy="+j+"\" title=\"\"><td class=\"free\">&nbsp;</td></a>";
+						tabela = tabela+"<td class=\"free\"><a href=\"RealizaAtaque?posx="+i+"&posy="+j+"\" title=\"\"><img src=\"img/target.png\" width=\"20px\" height=\"20px\" border=\"0\" /></a></td>";
 					else
 						tabela = tabela+"<td class=\"free\">&nbsp;</td>";
 				}				
