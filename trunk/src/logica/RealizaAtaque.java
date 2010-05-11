@@ -40,31 +40,33 @@ public class RealizaAtaque extends HttpServlet {
 		Game game = (Game) application.getAttribute("game");
 		Point target = new Point();
 		if(getTiro(request,target)){
-			ShotResult shot = game.doShot((String) session.getAttribute("login"), target);
-			switch(shot){
-			case NotYourTurn:
-				request.setAttribute("msg", "Não é sua vez");
-				break;
-			case ShotAlreadyDone:
-				request.setAttribute("msg", "Você já atirou nessa casa");
-				break;
-			case Miss:
-				request.setAttribute("msg", "Água...");
-				break;
-			case ShipHit:
-				request.setAttribute("msg", "Nave acertada");
-				break;
-			case ShipSunk:
-				request.setAttribute("msg", "Nave derrubada");
-				break;
-			case AllShipsSunk:
-				request.setAttribute("msg", "Todas as naves foram derrubadas");
-				break;
-			default:
-				request.setAttribute("msg", "Insira um campo válido");
-				break;
-			}
-			request.getRequestDispatcher("jogo.jsp").forward(request, response);
+			synchronized(this){
+				ShotResult shot = game.doShot((String) session.getAttribute("login"), target);
+				switch(shot){
+				case NotYourTurn:
+					request.setAttribute("msg", "Não é sua vez");
+					break;
+				case ShotAlreadyDone:
+					request.setAttribute("msg", "Você já atirou nessa casa");
+					break;
+				case Miss:
+					request.setAttribute("msg", "Água...");
+					break;
+				case ShipHit:
+					request.setAttribute("msg", "Nave acertada");
+					break;
+				case ShipSunk:
+					request.setAttribute("msg", "Nave derrubada");
+					break;
+				case AllShipsSunk:
+					request.setAttribute("msg", "Todas as naves foram derrubadas");
+					break;
+				default:
+					request.setAttribute("msg", "Insira um campo válido");
+					break;
+				}
+				request.getRequestDispatcher("jogo.jsp").forward(request, response);
+			}			
 		}
 		else{
 			request.setAttribute("error", "Insira um campo válido");
