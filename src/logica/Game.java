@@ -52,10 +52,18 @@ public class Game {
 		}
 		else if (player2 == null)
 		{
-			player2 = new Player(playerName);
+			if (player1.getPlayerName().equals(playerName))
+			{// 2 players are not allowed to have the same name.
+				player2 = new Player(playerName + "(1)");
+				this.gameState = GameState.Initializing;
+				return false;
+			}
+			else
+			{
+				player2 = new Player(playerName);
+			}
 			this.gameState = GameState.Initializing;
 		}
-		else { return false; }
 		return true;
 	}
 
@@ -129,6 +137,23 @@ public class Game {
 	public boolean isPlayersTurn(String playerName)
 	{
 		return turn.getPlayerName().equals(playerName);
+	}
+	
+	/**
+	 * Gets the name of the opposing player.
+	 * @param playerName The player asking for the name.
+	 * @return			 The opossing player's name.
+	 */
+	public String getOpponentPlayerName(String playerName)
+	{
+		if (player1.getPlayerName().equals(playerName))
+		{
+			return player2.getPlayerName();
+		}
+		else 
+		{
+			return player1.getPlayerName();
+		}
 	}
 	
 	/**

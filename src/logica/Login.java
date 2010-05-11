@@ -55,7 +55,10 @@ public class Login extends HttpServlet {
 					request.getRequestDispatcher("salaCheia.jsp").forward(request, response);
 				}
 				else{
-					game.addPlayer(login);
+					if (!game.addPlayer(login))
+					{
+						session.setAttribute("login", login+"(1)");
+					}
 					request.getRequestDispatcher("formNavios.jsp").forward(request, response);
 				}
 				

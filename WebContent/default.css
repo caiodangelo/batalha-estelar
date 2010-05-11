@@ -60,3 +60,7 @@ div.aguarde {
 #endgame {
 	padding-top: 20px;
 }
+
+#loginFieldSet {
+	width: 50%;
+}
