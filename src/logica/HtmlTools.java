@@ -54,11 +54,11 @@ public class HtmlTools {
 				if(atual.isHit()){
 					if (atual.hasShip())
 					{
-						tabela = tabela+"<td class=\"hitShip\">&nbsp;</td>";
+						tabela = tabela+"<td class=\"hitShip\">X</td>";
 					}
 					else
 					{
-						tabela = tabela+"<td class=\"miss\">&nbsp;</td>";
+						tabela = tabela+"<td class=\"miss\">X</td>";
 					}
 				}
 				else if(atual.hasShip()){
