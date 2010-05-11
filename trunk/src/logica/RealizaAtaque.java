@@ -81,7 +81,7 @@ public class RealizaAtaque extends HttpServlet {
 			Integer x,y;
 			x = Integer.parseInt(posx);
 			y = Integer.parseInt(posy);
-			if((x>0)&&(x<16)&&(y>0)&&(y<16)){
+			if((x>=0)&&(x<15)&&(y>=0)&&(y<15)){
 				target.x = x;
 				target.y = y;
 				return true;
