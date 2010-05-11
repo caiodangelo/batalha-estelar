@@ -7,15 +7,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!--meta http-equiv="Refresh" CONTENT="10;" /-->  
-<title>Aguarde o seu adversário - Batalha Espacial - Caio e Vitor</title>
+<link rel="stylesheet" href="default.css" />
+<title>Aguarde o seu adversário...</title>
 </head>
 <body>
-<p>Aguarde enquanto o seu adversário preenche o tabuleiro dele.</p>
+<div class="aguarde">
+<p>Aguarde enquanto o seu adversário termina de preencher o tabuleiro dele...</p>
 <%
 Game game = (Game) application.getAttribute("game");
 if(game.startGame())
 {
-	//out.println("<a href=\"espera.jsp\">Refresh</a>");
 	request.getRequestDispatcher("jogo.jsp").forward(request, response);
 }
 else{
@@ -24,5 +25,6 @@ else{
 <%	
 }
 %>
+</div>
 </body>
 </html>

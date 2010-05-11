@@ -1,10 +1,14 @@
 @CHARSET "ISO-8859-1";
 
 body {
-	width: 800px;
+	max-width: 800px;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
+table {
+	margin-bottom: 50px;
+	}
 table, td, tr {
 	text-align: center;
 	border-collapse: collapse;
@@ -15,6 +19,31 @@ td {
 	height: 20px;
 	width: 20px;
 }
+
+div.aguarde {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	}
+.clear {
+	clear: both;
+	}
+
+.info {
+	margin-bottom: 10px;
+	text-align: center;
+	}
+	
+#msgErro {
+	color: red;
+	text-align: center;
+	}
+	
+#seutabuleiro {
+	float: left;
+}
+#tabuleiroinimigo {
+	float: right;
+}
 .hitShip{
 	background-color:red;
 }
@@ -24,14 +53,7 @@ td {
 .free{
 	background-color:blue;
 }
-.seutabuleiro table {
-	float: left;
-}
-.tabuleiroinimigo table {
-	border: 2px solid red;
-	float: right;
-}
 
 #actions {
-	float: left;
+	
 }
