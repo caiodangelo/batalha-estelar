@@ -23,21 +23,28 @@ if(!game.isPlayersTurn(nome))
 
 </head>
 <body>
-<div class="info">
-	<%
-	out.println("<b>"+HtmlTools.getErrors((String)request.getAttribute("error"))+"</b>");
-	HtmlTools.getMessage((String) request.getAttribute("msg"));
-	%>
-</div>
-<div class="seutabuleiro">
+<div id="seutabuleiro">
 	<% 
 	out.println(HtmlTools.generateHtmlTable(game.getPlayerBoard(nome),game.getBoardSize()));
 	%>
 </div>
-<div class="tabuleiroinimigo">
+<div id="tabuleiroinimigo">
 	<%
 	out.println(HtmlTools.generateHtmlTable(game.getOpponentBoard(nome),game.getBoardSize()));
 	%>
+</div>
+<div class="clear"></div>
+<div class="info">
+	<p id="msgErro">
+	<%
+	out.println(HtmlTools.getErrors((String)request.getAttribute("error")));
+	%>
+	</p>
+	<p id="roundResult">
+	<%
+	out.println(HtmlTools.getMessage((String) request.getAttribute("msg")));
+	%>
+	</p>
 </div>
 <div id="actions">
 	<%

@@ -4,10 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="default.css" />
 <title>Sala Cheia - Batalha Espacial - Caio e Vitor</title>
 </head>
 <body>
-Ops... a sala está lotada. Tente novamente mais tarde.<br /><br />
+<h1>Ops...</h1>
+<p>A sala está lotada. Tente novamente mais tarde.</p>
+
 <a href="index.jsp">Voltar para a página inicial</a>
 </body>
 </html>
