@@ -42,7 +42,7 @@ public class HtmlTools {
 		return table;
 	}
 	
-	public static String generateHtmlTable(Cell[][] table, int quant){
+	public static String generateHtmlTable(Cell[][] table, int quant, boolean enemy){
 		String tabela = "";
 		tabela = tabela+"<table>";
 		for(int i=0; i<quant; i++)
@@ -65,7 +65,10 @@ public class HtmlTools {
 					tabela = tabela+"<td class=\"ship\">&nbsp;</td>";
 				}
 				else{
-					tabela = tabela+"<td class=\"free\">&nbsp;</td>";
+					if(enemy)
+						tabela = tabela+"<td class=\"free\"><a href=\"RealizaAtaque?posx="+j+"&posy="+i+"\" title=\"\">&nbsp;</a></td>";
+					else
+						tabela = tabela+"<td class=\"free\">&nbsp;</td>";
 				}				
 			}
 			tabela = tabela+"</tr>";
