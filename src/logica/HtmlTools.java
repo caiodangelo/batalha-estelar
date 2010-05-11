@@ -45,11 +45,17 @@ public class HtmlTools {
 	public static String generateHtmlTable(Cell[][] table, int quant, boolean enemy){
 		String tabela = "";
 		tabela = tabela+"<table>";
-		for(int i=0; i<quant; i++)
+		for(int i=-1; i<quant; i++)
 		{
 			tabela = tabela+"<tr>";
 			for(int j=0; j<quant; j++)
 			{
+//				if (i==-1)
+//				{
+//					int k = j + 1;
+//					tabela = tabela+"<th>"+k+"</th>";
+//					continue;
+//				}
 				Cell atual = table[i][j];
 				if(atual.isHit()){
 					if (atual.hasShip())
