@@ -15,7 +15,7 @@ String nome = (String) session.getAttribute("login");
 if(!game.isPlayersTurn(nome))
 {
 %>
-<meta http-equiv="Refresh" CONTENT="10;" />  
+<meta http-equiv="Refresh" CONTENT="2;url=jogo.jsp" />  
 <%
 }
 %>
