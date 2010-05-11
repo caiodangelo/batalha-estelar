@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="Refresh" CONTENT="10;url=espera.jsp">  
+<meta http-equiv="Refresh" CONTENT="2;url=espera.jsp">  
 <link rel="stylesheet" href="default.css" />
 <title>Aguarde o seu adversário...</title>
 </head>

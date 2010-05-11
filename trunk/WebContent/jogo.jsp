@@ -12,25 +12,34 @@ String nome = (String) session.getAttribute("login");
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="default.css" />
 <%
-if(!game.isPlayersTurn(nome))
+if(game != null)
 {
+	if (!game.isPlayersTurn(nome))
+	{
 %>
-<meta http-equiv="Refresh" CONTENT="2;url=jogo.jsp" />  
+<meta http-equiv="Refresh" CONTENT="3;url=jogo.jsp" />  
 <%
+}
 }
 %>
 <title>Jogo em andamento - Batalha Espacial - Caio e Vitor</title>
 
 </head>
 <body>
+<%
+if (game == null)
+{ // Oponente saiu do jogo
+	request.getRequestDispatcher("saiu.html").forward(request, response);
+}
+%>
 <div id="seutabuleiro">
 	<% 
-	out.println(HtmlTools.generateHtmlTable(game.getPlayerBoard(nome),game.getBoardSize()));
+	out.println(HtmlTools.generateHtmlTable(game.getPlayerBoard(nome),game.getBoardSize(), false));
 	%>
 </div>
 <div id="tabuleiroinimigo">
 	<%
-	out.println(HtmlTools.generateHtmlTable(game.getOpponentBoard(nome),game.getBoardSize()));
+	out.println(HtmlTools.generateHtmlTable(game.getOpponentBoard(nome),game.getBoardSize(), true));
 	%>
 </div>
 <div class="clear"></div>
@@ -56,6 +65,11 @@ if(!game.isPlayersTurn(nome))
 	<input type="submit" value="Envia" />
 	</form>
 	<%	
+	}
+	else {
+	%>
+	<p>Aguarde, esperando a vez do seu oponente...</p>
+	<%
 	}
 	%>
 </div>
